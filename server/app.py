@@ -18,15 +18,15 @@ db.init_app(app)
 
 api = Api(app)
 
-# @app.route('/')
-# def index():
-#     response = make_response(
-#         {
-#             "message": "Hello Campers!"
-#         },
-#         200
-#     )
-#     return response
+@app.route('/')
+def index():
+    response = make_response(
+        {
+            "message": "Hello Campers!"
+        },
+        200
+    )
+    return response
 
 
 class Campers(Resource):
@@ -111,7 +111,7 @@ class ActivitiesById(Resource):
 api.add_resource(ActivitiesById, '/activities/<int:id>')
 
 
-# Ask David to help with checking the post
+# Ask David to help with checking the post -- I think this works, based on the functionality of the front end
 class Signups(Resource):
     def get(self):
         signups = Signup.query.all()
